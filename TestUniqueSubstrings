@@ -1,0 +1,16 @@
+ static int 	uniqueSubstrings(String mainString, int subLength )
+    {
+    	int finalCount=0;
+    	HashMap<String, String> values= new HashMap<>();
+    	String samplePattern= String.format("([a-zA-Z]){%d}", subLength);
+    	Matcher m = Pattern.compile(samplePattern).matcher(mainString);
+        for (int i = 0; m.find(i); i = m.start() + 1) {
+            System.out.print(m.group() + " ");
+            values.put(m.group(), m.group());
+            finalCount++;
+        }
+    	
+    	return values.size();
+    	
+    	//return finalCount;
+    }
